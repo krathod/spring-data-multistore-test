@@ -311,6 +311,12 @@
 			<artifactId>spring-data-neo4j</artifactId>
 			<version>${sd.neo4j.version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-neo4j-rest</artifactId>
+			<version>${sd.neo4j.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.neo4j</groupId>

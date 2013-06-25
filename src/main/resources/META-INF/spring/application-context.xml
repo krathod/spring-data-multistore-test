@@ -10,6 +10,7 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
 		http://www.springframework.org/schema/data/neo4j http://www.springframework.org/schema/data/neo4j/spring-neo4j.xsd">
+	<import resource="spring-data-context.xml" />
 
 	<!-- JPA -->
 
@@ -38,10 +39,13 @@
 	</bean>
 	
 	<!-- Neo4J -->
+	<!-- <neo4j:config storeDirectory="target/config-test"/>
+	<neo4j:repositories base-package="org.springframework.data.example.neo4j" /> -->
 	
-	<neo4j:config storeDirectory="target/config-test"/>
-	<neo4j:repositories base-package="org.springframework.data.example.neo4j" />
 	
+	<bean id="graphDatabaseService" class="org.springframework.data.neo4j.rest.SpringRestGraphDatabase" destroy-method="shutdown">
+		<constructor-arg index="0" value="http://localhost:7474/db/data" />
+	</bean>
 	
 	<!-- MongoDB -->
 	
